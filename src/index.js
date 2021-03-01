@@ -5,22 +5,14 @@ module.exports = function check(str, bracketsConfig) {
       if (strArr[i] == bracketsConfig[j][0]) {
         if (strArr[i+1] == bracketsConfig[j][1]) {
           strArr.splice(i, 2);
-          i--;
+          i = -1;
         }
       }
     }
-  }
-  if (strArr.length == 0) {
-    return true;
-  } else {
-    return false;
-  }
+}
+if (strArr.length == 0) {
+  return true;
+} else {
+  return false;
+}
 }  
-
-// check('()', [['(', ')']]) // -> true
-// check('((()))()', [['(', ')']]) // -> true
-// check('())(', [['(', ')']]) // -> false
-// check('([{}])', [['(', ')'], ['[', ']'], ['{', '}']]) // -> true
-// check('[(])', [['(', ')'], ['[', ']']]) // -> false
-// check('[]()', [['(', ')'], ['[', ']']]) // -> true
-// check('[]()(', [['(', ')'], ['[', ']']]) // -> false
